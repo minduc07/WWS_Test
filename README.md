@@ -1,73 +1,11 @@
-1. Implement an ATM algorithm to serve a requested amount and use a
-minimum number of bank notes. Available bank notes are $50, $10,
-$5, $1. The requested amount is $2018.
+# WWS_Test
+Using for WWS test
 
-■■■■■ Solution ■■■■■
-Using Greedy algorithm:
-	2018 = 50*40 + 10*1 + 5*1 + 1*3
-	Minimum number of bank notes: 40 + 1 + 1 + 3 = 45
+git clone https://github.com/laravel/laravel.git wwsapp
+cd ~/wwsapp
+docker run --rm -v $(pwd):/app composer install
+# sudo chown -R $USER:$USER ~/laravel-app
 
-2. Find Google
-The word google can be spelled in many different ways.
-E.g: google, g00gle, g0oGle, g<>0gl3, googl3, GooGIe etc...
-Because:
-g = G
-o = O = 0 = () = [] = <>
-l = L = I = i
-e = E = 3
-Input exactly one word, e.g. "G00gL3"
-Output will return "TRUE" or "FALSE" whether there is a match or not.
 
-■■■■■ Solution ■■■■■
-	function replaceStr($str, $rules) {
-		var ret = str;
-		foreach($rules as $toStr => $arrStr) {
-  		foreach ($arrStr as $index => $frmStr) {
-				ret = ret.replace($frmStr, $toStr);
-			}
-		}
-		return ret;
-	}
 
-	function matchWord(strInput, strMatch) {
-		const repRule = array(
-			"g": ["G"],
-			"o": ["O", "0", "()", "[]", "<>"],
-			"l": ["L", "I", "i"],
-			"e": ["E", "3"]
-		);
-		
-		if (replaceStr(strInput, repRule) == lower(strMatch))
-			return true;
-		return false;
-	}
 
-	function matchGoogleWord(strInput) {
-		return matchWord(strInput, "Google")
-	}
-	
-	Call matchGoogleWord function to get result.
-
-3. Given a square matrix, calculate the absolute difference between the
-sums of its diagonals.
-For example, the square matrix arr is shown below:
-1 2 3
-4 5 6
-9 8 9
-The left-to-right diagonal = 1 + 5 + 9 = 15 . The right to left diagonal
-= 3 + 5 + 9 = 17. Their absolute difference is | 15 - 17 | = 2.
-
-■■■■■ Solution ■■■■■
-	function diffSumSMatrix(arr) {
-		// Initialize variables
-		var l2right = 0, r2left = 0, len = arr.length;
-
-		// Sum of its diagonals
-		for (var i = 0; i < len; i++) {
-			l2right += arr[i][i];
-			var j = len - i - 1;
-			r2left += arr[j][j];
-		}
-		return abs(l2right - r2left);
-	}
-	
